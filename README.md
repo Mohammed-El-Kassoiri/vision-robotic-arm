@@ -508,7 +508,7 @@ We welcome contributions! Here's how you can help:
 
 ### 🐛 Bug Reports
 
-Found a bug? [Open an issue](https://github.com/yourusername/vision-robotic-arm/issues) with:
+Found a bug? [Open an issue](https://github.com/Mohammed-El-Kassoiri/vision-robotic-arm/issues) with:
 - Detailed description
 - Steps to reproduce
 - Expected vs actual behavior
@@ -516,7 +516,7 @@ Found a bug? [Open an issue](https://github.com/yourusername/vision-robotic-arm/
 
 ### 💡 Feature Requests
 
-Have an idea? [Start a discussion](https://github.com/yourusername/vision-robotic-arm/discussions) with:
+Have an idea? [Start a discussion](https://github.com/Mohammed-El-Kassoiri/vision-robotic-arm/discussions) with:
 - Clear use case
 - Proposed implementation
 - Potential challenges
@@ -610,9 +610,9 @@ For detailed technical documentation:
 
 ### 🌟 Project Statistics
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/vision-robotic-arm?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/vision-robotic-arm?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/yourusername/vision-robotic-arm?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Mohammed-El-Kassoiri/vision-robotic-arm?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Mohammed-El-Kassoiri/vision-robotic-arm?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/Mohammed-El-Kassoiri/vision-robotic-arm?style=social)
 
 ---
 
