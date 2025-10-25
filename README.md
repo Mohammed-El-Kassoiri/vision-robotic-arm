@@ -19,6 +19,7 @@
 
 - [Overview](#-overview)
 - [Key Features](#-key-features)
+- [Demo](#-demo)
 - [System Architecture](#-system-architecture)
 - [Hardware Components](#-hardware-components)
 - [Software Stack](#-software-stack)
@@ -38,7 +39,6 @@
 
 This project presents the design and implementation of an intelligent **3-DOF robotic manipulator** equipped with **computer vision capabilities** for autonomous object sorting. The system combines physical control via Arduino Mega with an intuitive Python-based GUI (Tkinter), enabling multiple operation modes including manual control, pick-and-place, and automated color-based sorting.
 
----
 
 ## ✨ Key Features
 
@@ -84,6 +84,55 @@ This project presents the design and implementation of an intelligent **3-DOF ro
 </td>
 </tr>
 </table>
+
+---
+
+## 🎬 Demo
+
+### 📸 System Images
+
+<div align="center">
+
+#### Complete System Overview
+
+<table>
+<tr>
+<td width="50%">
+<img src="docs/images/full_system.jpg"  width="100%"/>
+<p><em>Complete robotic arm setup with Arduino Mega and camera</em></p>
+</td>
+<td width="50%">
+<img src="docs/images/gui_interface.png"  width="100%"/>
+<p><em>Python Tkinter GUI with live camera feed</em></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="docs/images/color_detection.png"  width="100%"/>
+<p><em>Color sorting Mode</em></p>
+</td>
+<td width="50%">
+<img src="docs/images/Pick_and_Place_Mode.png" width="100%"/>
+<p><em>Pick and Place Mode</em></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="docs/images/Manual_Mode.png" width="100%"/>
+<p><em>Manual_Mode</em></p>
+</td>
+</tr>
+</table>
+
+</div>
+
+### 🎥 Video Demonstration
+
+<div align="center">
+
+#### Watch the Robot in Action! 🚀
+
+[![Robot Demo Video](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=Bcgm5BQceog)
 
 ---
 
@@ -184,84 +233,6 @@ Pillow >= 8.0.0          # Image processing
 **Arduino Libraries:**
 ```cpp
 #include <Servo.h>        // Servo motor control
-
-// Define servo objects
-Servo baseServo;
-Servo shoulderServo;
-Servo elbowServo;
-Servo grabberServo;
-
-// Servo pin assignments (match servocontroller.py)
-const int basePin = 2;
-const int shoulderPin = 3;
-const int elbowPin = 4;
-const int grabberPin = 5;
-
-// Buffer for incoming serial data
-String inputString = "";
-bool stringComplete = false;
-
-void setup() {
-  Serial.begin(9600);
-
-  baseServo.attach(basePin);
-  shoulderServo.attach(shoulderPin);
-  elbowServo.attach(elbowPin);
-  grabberServo.attach(grabberPin);
-
-  // Set initial positions
-  baseServo.write(60);
-  shoulderServo.write(110);
-  elbowServo.write(10);
-  grabberServo.write(100);
-
-  Serial.println("Ready");
-}
-
-void loop() {
-  // Check if a complete command has been received
-  if (stringComplete) {
-    parseAndExecuteCommand(inputString);
-    inputString = "";
-    stringComplete = false;
-  }
-}
-
-// SerialEvent() runs automatically when new serial data arrives
-void serialEvent() {
-  while (Serial.available()) {
-    char inChar = (char)Serial.read();
-    if (inChar == '\n') {
-      stringComplete = true;
-    } else {
-      inputString += inChar;
-    }
-  }
-}
-
-void parseAndExecuteCommand(String command) {
-  // Expected format: B120,S100,E80,G130
-  int b = getValue(command, 'B');
-  int s = getValue(command, 'S');
-  int e = getValue(command, 'E');
-  int g = getValue(command, 'G');
-
-  if (b >= 0) baseServo.write(b);
-  if (s >= 0) shoulderServo.write(s);
-  if (e >= 0) elbowServo.write(e);
-  if (g >= 0) grabberServo.write(g);
-}
-
-int getValue(String data, char prefix) {
-  int index = data.indexOf(prefix);
-  if (index == -1) return -1;
-
-  int endIndex = data.indexOf(',', index);
-  if (endIndex == -1) endIndex = data.length();
-
-  String valueStr = data.substring(index + 1, endIndex);
-  return valueStr.toInt();
-}
 ```
 
 ### 🎨 Image Processing Pipeline
@@ -291,7 +262,7 @@ int getValue(String data, char prefix) {
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/vision-robotic-arm.git
+git clone https://github.com/Mohammed-El-Kassoiri/vision-robotic-arm.git
 cd vision-robotic-arm
 ```
 
@@ -313,7 +284,7 @@ pip install -r requirements.txt
 
 ### Step 3: Arduino Setup
 
-1. Open `arduino/robot_control.ino` in Arduino IDE
+1. Open `arduino/code.ino` in Arduino IDE
 2. Select **Board**: Tools → Board → Arduino Mega 2560
 3. Select **Port**: Tools → Port → (your COM port)
 4. Click **Upload** ✅
@@ -331,7 +302,8 @@ pip install -r requirements.txt
 cd vision-robotic-arm
 
 # Run the main application
-python src/main.py
+ce GUI
+python code/run.py
 ```
 
 ### 🖱️ GUI Controls
@@ -496,15 +468,6 @@ h = sqrt(d² + L₀²)
 <td>High accuracy in controlled environment</td>
 </tr>
 </table>
-
-### 📈 Performance Metrics
-
-- **Average Sorting Cycle Time:** 4.5 seconds
-- **Color Detection Latency:** <50ms
-- **Positioning Accuracy:** ±5mm
-- **Gripper Success Rate:** 87%
-- **Continuous Operation Time:** 2+ hours
-
 ---
 
 ## 🏭 Industrial Applications
@@ -522,28 +485,6 @@ h = sqrt(d² + L₀²)
 | ♻️ **Recycling** | Material separation | Environmental impact, efficiency |
 | 🏥 **Pharmaceuticals** | Pill sorting and packaging | Safety, compliance |
 | 🔧 **Manufacturing** | Component assembly | Precision, repeatability |
-
-### 🔄 Scalability Path
-
-```
-Educational Prototype
-        ↓
-    [UPGRADE COMPONENTS]
-        ↓
-Industrial-Grade Servos (5-10 kg payload)
-Metal/Carbon Fiber Frame
-Industrial PLC (Siemens/Allen-Bradley)
-High-Resolution Industrial Camera
-        ↓
-    [ADD FEATURES]
-        ↓
-AI-based Object Recognition
-Multi-arm Coordination
-Cloud Connectivity (Industry 4.0)
-Predictive Maintenance
-        ↓
-Full Industrial Solution
-```
 
 ---
 
@@ -580,20 +521,6 @@ Found a bug? [Open an issue](https://github.com/Mohammed-El-Kassoiri/vision-robo
 - Steps to reproduce
 - Expected vs actual behavior
 - Screenshots/videos if applicable
-
-### 💡 Feature Requests
-
-Have an idea? [Start a discussion](https://github.com/Mohammed-El-Kassoiri/vision-robotic-arm/discussions) with:
-- Clear use case
-- Proposed implementation
-- Potential challenges
-
-**Coding Standards:**
-- Follow PEP 8 for Python code
-- Comment complex algorithms
-- Add docstrings to functions
-- Update documentation
-
 ---
 
 ## 📄 License
@@ -617,21 +544,12 @@ of this software and associated documentation files...
 - **Robotics Stack Exchange** - Technical discussions
 - **GitHub Open Source Projects** - Code references
 
-### 🏆 Special Thanks
-
-- Family for unwavering support
-- Fellow students for collaboration
-- ENSIASD faculty for quality education
-
----
-
 ## 📞 Contact & Support
 
 <div align="center">
 
-### 👤 Author
+### 👤 Mohammed EL KASSOIRI
 
-**Mohammed EL KASSOIRI**
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/Mohammed-El-Kassoiri)
 [![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:mohammed.kassoiri@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/Mohammed-El-Kassoiri)
@@ -662,3 +580,5 @@ Give a ⭐ if this project helped you!
 ---
 
 © 2025 Vision-Based Robotic Arm Project. All Rights Reserved.
+
+</div>
