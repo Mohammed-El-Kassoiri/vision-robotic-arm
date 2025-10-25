@@ -8,9 +8,6 @@
 ![Arduino](https://img.shields.io/badge/Arduino-Mega-teal?style=for-the-badge&logo=arduino)
 
 ### 🎯 A 3-DOF Robotic Manipulator with Real-Time Computer Vision for Automated Color-Based Object Sorting
-
-[Features](#-key-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [Documentation](#-documentation)
-
 ---
 
 </div>
@@ -19,20 +16,17 @@
 
 - [Overview](#-overview)
 - [Key Features](#-key-features)
-- [Demo](#-demo)
-- [System Architecture](#-system-architecture)
 - [Hardware Components](#-hardware-components)
 - [Software Stack](#-software-stack)
 - [Installation](#-installation)
 - [Usage Guide](#-usage-guide)
 - [Operating Modes](#-operating-modes)
 - [Results](#-results)
+- [Demo](#-demo)
 - [Industrial Applications](#-industrial-applications)
 - [Future Enhancements](#-future-enhancements)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Acknowledgments](#-acknowledgments)
-
 ---
 
 ## 🌟 Overview
@@ -45,34 +39,14 @@ This project presents the design and implementation of an intelligent **3-DOF ro
 <table>
 <tr>
 <td width="50%">
-
 ### 🎨 **Computer Vision**
 - Real-time color detection (Red, Green, Blue, Yellow)
 - HSV color space processing
 - Object tracking and localization
 - Robust contour detection
-
 </td>
-<td width="50%">
-
-### 🦾 **Robotic Control**
-- 3 Degrees of Freedom (3-DOF)
-- Precise servo motor control
-- Inverse kinematics implementation
-- Smooth trajectory planning
-
-</td>
-</tr>
 <tr>
-<td width="50%">
 
-### 🖥️ **User Interface**
-- Intuitive Tkinter-based GUI
-- Live camera feed display
-- Multiple operating modes
-- Real-time status monitoring
-
-</td>
 <td width="50%">
 
 ### 🔧 **Modularity**
@@ -87,54 +61,6 @@ This project presents the design and implementation of an intelligent **3-DOF ro
 
 ---
 
-## 🎬 Demo
-
-### 📸 System Images
-
-<div align="center">
-
-#### Complete System Overview
-
-<table>
-<tr>
-<td width="50%">
-<img src="docs/images/full_system.jpg"  width="100%"/>
-<p><em>Complete robotic arm setup with Arduino Mega and camera</em></p>
-</td>
-<td width="50%">
-<img src="docs/images/gui_interface.png"  width="100%"/>
-<p><em>Python Tkinter GUI with live camera feed</em></p>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<img src="docs/images/color_detection.png"  width="100%"/>
-<p><em>Color sorting Mode</em></p>
-</td>
-<td width="50%">
-<img src="docs/images/Pick_and_Place_Mode.png" width="100%"/>
-<p><em>Pick and Place Mode</em></p>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<img src="docs/images/Manual_Mode.png" width="100%"/>
-<p><em>Manual_Mode</em></p>
-</td>
-</tr>
-</table>
-
-</div>
-
-### 🎥 Video Demonstration
-
-<div align="center">
-
-#### Watch the Robot in Action! 🚀
-
-[![Robot Demo Video](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=Bcgm5BQceog)
-
----
 
 ## 🏗️ System Architecture
 
@@ -189,21 +115,14 @@ graph TB
 | **Arduino Mega** | ATmega2560 | 1 | Main controller |
 | **Servo Motors** | MG996R (180°) | 4 | Joint actuation |
 | **USB Camera** | 720p min | 1 | Vision system |
-| **Power Supply** | 5V/3A | 1 | Servo power |
 | **Breadboard** | 830 points | 1 | Prototyping |
 | **Jumper Wires** | Dupont M-M/M-F | 40+ | Connections |
-| **Mechanical Structure** | Custom 3D printed | 1 set | Frame & links |
 
 </div>
 
 ### 🤖 Robot Specifications
 
 - **Degrees of Freedom:** 3-DOF (Base rotation + 2 revolute joints)
-- **Workspace:** Semi-circular, radius ≈ 25 cm
-- **Payload Capacity:** 200g max
-- **Positioning Accuracy:** ±5mm
-- **Operating Speed:** 2-3 seconds per pick-place cycle
-
 ---
 
 ## 💻 Software Stack
@@ -235,29 +154,9 @@ Pillow >= 8.0.0          # Image processing
 #include <Servo.h>        // Servo motor control
 ```
 
-### 🎨 Image Processing Pipeline
-
-```python
-# Simplified processing flow
-1. Capture Frame → cv2.VideoCapture()
-2. Color Space Conversion → cv2.cvtColor(BGR → HSV)
-3. Color Masking → cv2.inRange(hsv, lower_bound, upper_bound)
-4. Morphological Operations → cv2.dilate(), cv2.erode()
-5. Contour Detection → cv2.findContours()
-6. Moment Calculation → cv2.moments()
-7. Centroid Extraction → (M10/M00, M01/M00)
-```
-
 ---
 
 ## 🚀 Installation
-
-### Prerequisites
-
-- **Python 3.8+** installed
-- **Arduino IDE 1.8+** installed
-- **USB Camera or ip camera** connected
-- **Arduino Mega** board with USB cable
 
 ### Step 1: Clone Repository
 
@@ -386,10 +285,10 @@ For each detected object:
 ```
 
 **Supported Colors:**
-- 🔴 **Red** → Zone 1
-- 🟢 **Green** → Zone 2
-- 🔵 **Blue** → Zone 3
-- 🟡 **Yellow** → Zone 4
+- 🔴 **Red**
+- 🟢 **Green**
+- 🔵 **Blue**
+- 🟡 **Yellow**
 
 ---
 
@@ -468,6 +367,55 @@ h = sqrt(d² + L₀²)
 <td>High accuracy in controlled environment</td>
 </tr>
 </table>
+---
+
+## 🎬 Demo
+
+### 📸 System Images
+
+<div align="center">
+
+#### Complete System Overview
+
+<table>
+<tr>
+<td width="50%">
+<img src="docs/images/full_system.jpg"  width="100%"/>
+<p><em>Complete robotic arm setup with Arduino Mega and camera</em></p>
+</td>
+<td width="50%">
+<img src="docs/images/gui_interface.png"  width="100%"/>
+<p><em>Python Tkinter GUI with live camera feed</em></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="docs/images/color_detection.png"  width="100%"/>
+<p><em>Color sorting Mode</em></p>
+</td>
+<td width="50%">
+<img src="docs/images/Pick_and_Place_Mode.png" width="100%"/>
+<p><em>Pick and Place Mode</em></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="docs/images/Manual_Mode.png" width="100%"/>
+<p><em>Manual_Mode</em></p>
+</td>
+</tr>
+</table>
+
+</div>
+
+### 🎥 Video Demonstration
+
+<div align="center">
+
+#### Watch the Robot in Action! 🚀
+
+[![Robot Demo Video](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=Bcgm5BQceog)
+
 ---
 
 ## 🏭 Industrial Applications
