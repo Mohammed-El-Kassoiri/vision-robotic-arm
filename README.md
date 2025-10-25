@@ -475,23 +475,6 @@ Found a bug? [Open an issue](https://github.com/Mohammed-El-Kassoiri/vision-robo
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-```
-MIT License
-
-Copyright (c) 2025 Mohammed EL KASSOIRI
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
-```
-
-
-### 📚 Resources & Inspiration
-
-- **Arduino Community** - Hardware support
-- **OpenCV Documentation** - Computer vision guidance
-- **Robotics Stack Exchange** - Technical discussions
-- **GitHub Open Source Projects** - Code references
-
 ## 📞 Contact & Support
 
 <div align="center">
@@ -507,17 +490,6 @@ of this software and associated documentation files...
 Give a ⭐ if this project helped you!
 
 </div>
-
-
----
-
-<div align="center">
-
-### 🌟 Project Statistics
-
-![GitHub stars](https://img.shields.io/github/stars/Mohammed-El-Kassoiri/vision-robotic-arm?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Mohammed-El-Kassoiri/vision-robotic-arm?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/Mohammed-El-Kassoiri/vision-robotic-arm?style=social)
 
 ---
 
