@@ -38,15 +38,6 @@
 
 This project presents the design and implementation of an intelligent **3-DOF robotic manipulator** equipped with **computer vision capabilities** for autonomous object sorting. The system combines physical control via Arduino Mega with an intuitive Python-based GUI (Tkinter), enabling multiple operation modes including manual control, pick-and-place, and automated color-based sorting.
 
-### 🎓 Academic Context
-
-**Project Type:** End of Year Project (PFA)  
-**Program:** Data Science, Big Data & AI  
-**Institution:** ENSIASD Taroudant  
-**Academic Year:** 2024-2025  
-**Supervisor:** Pr. Brahim Moudoud  
-**Author:** Mohammed EL KASSOIRI
-
 ---
 
 ## ✨ Key Features
